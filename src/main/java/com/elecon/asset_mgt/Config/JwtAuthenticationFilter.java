@@ -37,7 +37,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     final String authHeader = request.getHeader("Authorization");
 
-    System.out.println("authheader "+authHeader);
+//    System.out.println("authheader "+authHeader);
 
     if (authHeader == null || authHeader.startsWith("Bearer ") && !request.getRequestURI().equals("/api/v1/employee/login")) {
 //        System.out.println("in if");
@@ -49,15 +49,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 //      System.out.println("filterchain");
       return;
     }
-    System.out.println("after if");
+//    System.out.println("after if");
 
     final String token = authHeader.substring(7);
-    System.out.println("token"+token);
+//    System.out.println("token"+token);
 
     try {
         // Change this to your secret key
         String SECRET_KEY = "afafasfafafasfasfasfafacasdasfasxASFACASDFACASDFASFASFDAFASFASDAADSCSDFADCVSGCFVADXCcadwavfsfarvf";
-        System.out.println(jwtservice.isTokenValid(token));
+//        System.out.println(jwtservice.isTokenValid(token));
         if (jwtservice.isTokenValid(token)) {
             System.out.println("in if of filter");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

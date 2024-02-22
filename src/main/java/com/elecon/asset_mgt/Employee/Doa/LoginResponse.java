@@ -1,7 +1,6 @@
-package com.elecon.asset_mgt.DTO;
+package com.elecon.asset_mgt.Employee.Doa;
 
 import com.elecon.asset_mgt.Employee.Models.EmployeeModel;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data

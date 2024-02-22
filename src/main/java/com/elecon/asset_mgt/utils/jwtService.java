@@ -23,28 +23,28 @@ public class jwtService{
     }
 
     public String generateToken(EmployeeModel user) {
-        System.out.println("generate token public");
+//        System.out.println("generate token public");
         return generateToken(new HashMap<>(), user);
     }
     public boolean isTokenValid(String token) {
 //        final String employeeName = extractEmployee_name(token);
-        System.out.println("in isvalidtoken function public");
-        System.out.println("isTokenExpired(token)"+isTokenExpired(token));
+//        System.out.println("in isvalidtoken function public");
+//        System.out.println("isTokenExpired(token)"+isTokenExpired(token));
         return (isTokenExpired(token));
     }
 
     private <T> T extractClaim(String token, Function<Claims, T> claimsResolvers) {
-        System.out.println("extractclaim private"+extractAllClaims(token));
+//        System.out.println("extractclaim private"+extractAllClaims(token));
         final Claims claims = extractAllClaims(token);
-        System.out.println("claims"+claims);
-        System.out.println("claimresolver.apply() "+claimsResolvers.apply(claims));
+//        System.out.println("claims"+claims);
+//        System.out.println("claimresolver.apply() "+claimsResolvers.apply(claims));
         return claimsResolvers.apply(claims);
     }
 
     private String generateToken(Map<String, Object> extraClaims, EmployeeModel user) {
-        System.out.println("generate token private");
-        System.out.println("Date(System.currentTimeMillis()) "+ new Date(System.currentTimeMillis()));
-        System.out.println("new Date(System.currentTimeMillis() + 60000) "+new Date(System.currentTimeMillis() + 5000));
+//        System.out.println("generate token private");
+//        System.out.println("Date(System.currentTimeMillis()) "+ new Date(System.currentTimeMillis()));
+//        System.out.println("new Date(System.currentTimeMillis() + 60000) "+new Date(System.currentTimeMillis() + 5000));
         extraClaims.put("user_role", user.getRole());
         extraClaims.put("employeeCode", user.getEmployeeCode());
         return Jwts.builder().setClaims(extraClaims).setSubject(user.getEmployee_name())
@@ -54,17 +54,17 @@ public class jwtService{
     }
 
     private boolean isTokenExpired(String token) {
-        System.out.println("in isvalidtoken function private"+extractExpiration(token).before(new Date()));
+//        System.out.println("in isvalidtoken function private"+extractExpiration(token).before(new Date()));
         return extractExpiration(token).before(new Date());
     }
 
     private Date extractExpiration(String token) {
-        System.out.println("extractExpiration private"+extractClaim(token, Claims::getExpiration));
+//        System.out.println("extractExpiration private"+extractClaim(token, Claims::getExpiration));
         return extractClaim(token, Claims::getExpiration);
     }
 
     private Claims extractAllClaims(String token) {
-        System.out.println("extarctallclaims");
+//        System.out.println("extarctallclaims");
         return Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token)
                 .getBody();
     }

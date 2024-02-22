@@ -1,8 +1,8 @@
 // The EmployeeController class contains methods for creating, retrieving, updating, and deleting employee data, handling exceptions, and authenticating login requests in an employee management system.
 package com.elecon.asset_mgt.Employee.Controllers;
 
-import com.elecon.asset_mgt.DTO.LoginRequest;
-import com.elecon.asset_mgt.DTO.LoginResponse;
+import com.elecon.asset_mgt.Employee.Doa.LoginRequest;
+import com.elecon.asset_mgt.Employee.Doa.LoginResponse;
 import com.elecon.asset_mgt.Employee.Models.EmployeeModel;
 import com.elecon.asset_mgt.Employee.Services.EmployeeNotFoundException;
 import com.elecon.asset_mgt.Employee.Services.EmployeeService;

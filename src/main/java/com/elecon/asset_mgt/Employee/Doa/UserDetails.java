@@ -1,4 +1,4 @@
-package com.elecon.asset_mgt.DTO;
+package com.elecon.asset_mgt.Employee.Doa;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
