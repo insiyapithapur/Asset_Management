@@ -66,6 +66,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         Claims claims = Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
 
       String employeeName = claims.get("sub", String.class);
+        System.out.println(employeeName);
       String role = claims.get("user_role", String.class);
       String employeeCode = claims.get("employeeCode", String.class);
       request.setAttribute("userRole", role);
@@ -73,6 +74,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
       UserDetails userDetails = new UserDetails() {
         @Override
         public Collection<? extends GrantedAuthority> getAuthorities() {
+            System.out.println("granted authority");
           Collection<GrantedAuthority> authorities = new ArrayList<>();
           authorities.add(new SimpleGrantedAuthority(role));
           return authorities;
@@ -110,10 +112,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
           return true;
         }
       };
-
+      System.out.println("before");
       if (employeeName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+          System.out.println("in if employeename != null");
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-          userDetails, null, userDetails.getAuthorities());
+                employeeCode, null, userDetails.getAuthorities());
         authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         SecurityContextHolder.getContext().setAuthentication(authToken);
       }
@@ -131,10 +134,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     if (SecurityContextHolder.getContext().getAuthentication() == null) {
+        System.out.println("in getauth");
       response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
       return;
     }
-
+    System.out.println("out getauth");
     filterChain.doFilter(request, response);
+    System.out.println("filter");
   }
 }

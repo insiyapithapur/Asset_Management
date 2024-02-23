@@ -4,7 +4,7 @@ import com.elecon.asset_mgt.Category.Models.CategoryModel;
 import com.elecon.asset_mgt.Category.Repository.CategoryRepo;
 import com.elecon.asset_mgt.Classification.Models.ClassificationModel;
 import com.elecon.asset_mgt.Classification.Repository.ClassificationRepo;
-import com.elecon.asset_mgt.Type.Dao.CreatetypeDao;
+import com.elecon.asset_mgt.Type.DAO.CreatetypeDao;
 import com.elecon.asset_mgt.Type.Models.TypeModel;
 import com.elecon.asset_mgt.Type.Repository.TypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;

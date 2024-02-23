@@ -1,6 +1,5 @@
-package com.elecon.asset_mgt.Type.Dao;
+package com.elecon.asset_mgt.Type.DAO;
 
-import com.elecon.asset_mgt.Category.Models.CategoryModel;
 import lombok.Data;
 
 @Data

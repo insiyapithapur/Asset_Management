@@ -1,9 +1,8 @@
 package com.elecon.asset_mgt.Type.Controllers;
 
-import com.elecon.asset_mgt.Classification.Models.ClassificationModel;
 import com.elecon.asset_mgt.Classification.Services.ClassificationNotFoundException;
 import com.elecon.asset_mgt.Exceptions.ForeignKeyViolationException;
-import com.elecon.asset_mgt.Type.Dao.CreatetypeDao;
+import com.elecon.asset_mgt.Type.DAO.CreatetypeDao;
 import com.elecon.asset_mgt.Type.Models.TypeModel;
 import com.elecon.asset_mgt.Type.Services.TypeService;
 import org.jetbrains.annotations.NotNull;

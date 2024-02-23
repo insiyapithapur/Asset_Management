@@ -1,7 +1,7 @@
 package com.elecon.asset_mgt.utils;
 
 
-import com.elecon.asset_mgt.Employee.Doa.LoginResponse;
+import com.elecon.asset_mgt.Employee.DAO.LoginResponse;
 import com.elecon.asset_mgt.Employee.Models.EmployeeModel;
 import com.elecon.asset_mgt.Employee.Services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;

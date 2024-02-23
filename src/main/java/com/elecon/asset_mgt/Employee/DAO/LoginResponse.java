@@ -1,4 +1,4 @@
-package com.elecon.asset_mgt.Employee.Doa;
+package com.elecon.asset_mgt.Employee.DAO;
 
 import com.elecon.asset_mgt.Employee.Models.EmployeeModel;
 import lombok.Data;
