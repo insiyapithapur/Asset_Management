@@ -23,7 +23,7 @@ public class SecurityConfiguration {
     System.out.println("security");
     http.csrf(csrf -> csrf.disable())
       .authorizeRequests(authorizeRequests -> authorizeRequests
-        .requestMatchers("/api/v1/employee/login","/api/v1/employee/CreateEmployee/","/api/v1/employee/registerEmployee/**").permitAll()
+        .requestMatchers("/api/v1/employee/login","/api/v1/employee/CreateEmployee/","/api/v1/employee/registerEmployee/**","/api/v1/AssetRequest/addStatus").permitAll()
         .anyRequest().authenticated()
       )
       .sessionManagement(sessionManagement ->
