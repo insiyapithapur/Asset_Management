@@ -39,12 +39,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     System.out.println("authheader "+authHeader);
 
-    if (authHeader == null || !authHeader.startsWith("Bearer ") && !request.getRequestURI().equals("/api/v1/employee/login")) {
+    if (authHeader == null || authHeader.startsWith("Bearer ") && request.getRequestURI().equals("/api/v1/employee/login")) {
         System.out.println("in if");
         System.out.println(authHeader == null || !authHeader.startsWith("Bearer ") && !request.getRequestURI().equals("/api/v1/employee/login"));
         System.out.println(authHeader == null);
-        System.out.println(!authHeader.startsWith("Bearer "));
-        System.out.println(!request.getRequestURI().equals("/api/v1/employee/login"));
+//        System.out.println(!authHeader.startsWith("Bearer "));
+//        System.out.println(!request.getRequestURI().equals("/api/v1/employee/login"));
       filterChain.doFilter(request, response);
       System.out.println("filterchain");
       return;
