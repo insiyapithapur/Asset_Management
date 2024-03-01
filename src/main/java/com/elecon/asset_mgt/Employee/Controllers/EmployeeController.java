@@ -4,6 +4,7 @@ package com.elecon.asset_mgt.Employee.Controllers;
 import com.elecon.asset_mgt.Employee.DAO.LoginRequest;
 import com.elecon.asset_mgt.Employee.DAO.LoginResponse;
 import com.elecon.asset_mgt.Employee.Models.EmployeeModel;
+import com.elecon.asset_mgt.Employee.Repository.EmployeeRepo;
 import com.elecon.asset_mgt.Employee.Services.EmployeeNotFoundException;
 import com.elecon.asset_mgt.Employee.Services.EmployeeService;
 import com.elecon.asset_mgt.Exceptions.ForeignKeyViolationException;
@@ -13,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +29,8 @@ public class EmployeeController {
   private EmployeeService employeeService;
   @Autowired
   private AuthenticationService authenticationService;
+  @Autowired
+  private EmployeeRepo employeerepo;
   @CrossOrigin(origins = "*",allowedHeaders = "*")
   @PostMapping("/CreateEmployee/")
   public ResponseEntity<Map<String, Object>> createEmployee(@RequestBody EmployeeModel employeeModel) {
@@ -156,8 +160,11 @@ public class EmployeeController {
   }
 
   @GetMapping("/test/")
-  public ResponseEntity<?> test() {
-    return ResponseEntity.status(HttpStatus.OK).body("Done");
+  public ResponseEntity<?> test(Principal principal) {
+    String employeeCodejwt = principal.getName();
+    System.out.println(employeeCodejwt);
+    EmployeeModel employee = employeerepo.findByEmployeeCode(employeeCodejwt);
+    return ResponseEntity.status(HttpStatus.OK).body(employee);
   }
 
   @ExceptionHandler(Exception.class)

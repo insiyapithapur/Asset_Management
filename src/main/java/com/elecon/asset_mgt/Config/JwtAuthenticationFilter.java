@@ -112,8 +112,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
           return true;
         }
       };
-      System.out.println("before");
-      if (employeeName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+        System.out.println("before" + (employeeName != null));
+        System.out.println("before" + (SecurityContextHolder.getContext().getAuthentication() == null));
+
+        if (employeeName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
           System.out.println("in if employeename != null");
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                 employeeCode, null, userDetails.getAuthorities());
